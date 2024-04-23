@@ -27,7 +27,4 @@ public class CheckText {
                 '}';
     }
 
-    public static boolean checkText(String text) {
-        return Numbers.isNumber(text);
-    }
 }

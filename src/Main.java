@@ -11,20 +11,31 @@ public class Main {
         Numbers tempNumber = new Numbers(new int[1]);
         Text tempText = new Text(input, new String[1]);
 
-        for (int i = 0; i <= input.length(); i++) {
-            if (i == input.length() || input.charAt(i) == ' ' || input.charAt(i) == '.') {
+        boolean isText = false;
+
+        for (int i = 0; i < input.length(); i++) {
+
+            if (!isText) {
+                char ch = input.charAt(i);
+                if (!Character.isDigit(ch) && input.charAt(i) != ' ' && input.charAt(i) != '.') {
+                    isText = true;
+                }
+            }
+
+
+            if (input.charAt(i) == ' ' || input.charAt(i) == '.') {
                 end = i;
                 tempString = input.substring(start, end).trim();
 
-                boolean isNumber = CheckText.checkText(tempString);
 
-                if (isNumber) {
-                    tempNumber.setNumber(tempString);
-                } else {
+                if (isText){
                     tempText.setText(tempString);
+                }else{
+                    tempNumber.setNumber(tempString);
                 }
 
                 start = i + 1;
+                isText = false;
             }
         }
 

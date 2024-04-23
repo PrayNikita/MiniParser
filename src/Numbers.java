@@ -1,4 +1,4 @@
-public class Numbers {
+public class Numbers extends Parser{
     protected int[] numbers;
 
     public Numbers(int[] numbers) {
@@ -12,7 +12,7 @@ public class Numbers {
         int[] tempArr = new int[length];
 
         System.arraycopy(this.numbers, 0, tempArr, 0, this.numbers.length);
-        tempArr[length - 1] = intNumber;
+        tempArr[length - 2] = intNumber;
         this.numbers = tempArr;
     }
 
@@ -40,10 +40,7 @@ public class Numbers {
 
     public static boolean isNumber(String text) {
         for (int i = 0; i < text.length(); i++) {
-            char ch = text.charAt(i);
-            if (!Character.isDigit(ch)) {
-                return false;
-            }
+
         }
         return true;
     }
